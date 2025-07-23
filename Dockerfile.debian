@@ -1,0 +1,36 @@
+FROM debian:latest
+
+# Set desired Go version
+ENV GOLANG_VERSION=1.24.0
+
+# Install dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        ca-certificates \
+        curl \
+        git \
+        build-essential && \
+    rm -rf /var/lib/apt/lists/*
+
+# Download and install Go manually
+RUN curl -fsSL https://go.dev/dl/go${GOLANG_VERSION}.linux-amd64.tar.gz -o go.tar.gz && \
+    rm -rf /usr/local/go && \
+    tar -C /usr/local -xzf go.tar.gz && \
+    rm go.tar.gz
+
+# Add Go to PATH
+ENV PATH="/usr/local/go/bin:${PATH}"
+
+# Set working directory
+WORKDIR /app
+
+# Copy and build app
+COPY go.mod go.sum ./
+RUN go mod download
+
+COPY main.go ./
+
+RUN CGO_ENABLED=0 go build -o /usr/bin/hello-server .
+
+ENTRYPOINT ["/usr/bin/hello-server"]
+

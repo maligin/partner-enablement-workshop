@@ -25,7 +25,7 @@ pipeline:
   - uses: fetch
     with:
       uri: https://github.com/maligin/partner-enablement-workshop/archive/refs/heads/main.tar.gz
-      expected-sha256: 51f7a71b3821aa103687134d5f1e041746475aecd7a17b2f601a0503b9dbcbcd
+      expected-sha256: 07b72e8da4592b379c652fb5f20ae3bf51f5ceb690ca7d7325e409fd6316ddcd
   - name: Build Go application
     runs: |
       CGO_ENABLED=0 go build -o "${{targets.destdir}}/usr/bin/hello-server" .
