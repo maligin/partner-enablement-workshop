@@ -1,0 +1,7 @@
+melange.rsa
+melange.rsa.pub
+packages/
+*.tar
+sbom-*
+build.txt
+.git

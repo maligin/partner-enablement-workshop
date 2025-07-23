@@ -1,0 +1,34 @@
+package:
+  name: hello-server
+  version: 0.1.0
+  epoch: 0
+  description: friendly little webserver
+  target-architecture:
+    - all
+  copyright:
+    - license: Apache-2.0
+      paths:
+        - "*"
+
+environment:
+  contents:
+    keyring:
+      - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
+      - ./melange.rsa.pub
+    repositories:
+      - https://apk.cgr.dev/maligin.de
+    packages:
+      - ca-certificates-bundle
+      - busybox
+      - git
+      - go
+
+pipeline:
+  - uses: fetch
+    with:
+      uri: https://github.com/chainguard-dev/hello-melange-apko/archive/refs/heads/main.tar.gz
+      expected-sha256: 637b6414f2eb2fdad053333005c3104639227a35c7b9f30983ede29fc65423e9
+
+  - name: Build Go application
+    runs: |
+      CGO_ENABLED=0 go build -o "${{targets.destdir}}/usr/bin/hello-server" .

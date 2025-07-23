@@ -1,0 +1,20 @@
+FROM alpine:latest
+
+# Install dependencies
+RUN apk add --no-cache ca-certificates git go
+
+# Set workdir
+WORKDIR /app
+
+# Copy Go files
+COPY go.mod go.sum ./
+RUN go mod download
+
+COPY main.go ./
+
+# Build binary
+RUN CGO_ENABLED=0 go build -o /usr/bin/hello-server .
+
+# Entrypoint
+ENTRYPOINT ["/usr/bin/hello-server"]
+

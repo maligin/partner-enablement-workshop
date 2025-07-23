@@ -1,0 +1,48 @@
+# === Stage 1: Build ===
+FROM debian:latest AS builder
+
+# Set desired Go version
+ENV GOLANG_VERSION=1.24.0
+
+# Install dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        ca-certificates \
+        curl \
+        git \
+        build-essential && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install Go manually
+RUN curl -fsSL https://go.dev/dl/go${GOLANG_VERSION}.linux-amd64.tar.gz -o go.tar.gz && \
+    rm -rf /usr/local/go && \
+    tar -C /usr/local -xzf go.tar.gz && \
+    rm go.tar.gz
+
+# Add Go to PATH
+ENV PATH="/usr/local/go/bin:${PATH}"
+
+# Set working directory
+WORKDIR /app
+
+# Copy and build Go app
+COPY go.mod go.sum ./
+RUN go mod download
+
+COPY main.go ./
+RUN CGO_ENABLED=0 go build -o /hello-server .
+
+# === Stage 2: Runtime ===
+FROM debian:latest
+
+# Install CA certs only (minimal runtime deps)
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends ca-certificates && \
+    rm -rf /var/lib/apt/lists/*
+
+# Copy binary from builder
+COPY --from=builder /hello-server /usr/bin/hello-server
+
+# Entrypoint
+ENTRYPOINT ["/usr/bin/hello-server"]
+
