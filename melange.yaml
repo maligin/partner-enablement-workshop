@@ -9,7 +9,6 @@ package:
     - license: Apache-2.0
       paths:
         - "*"
-
 environment:
   contents:
     keyring:
@@ -22,13 +21,11 @@ environment:
       - busybox
       - git
       - go
-
 pipeline:
   - uses: fetch
     with:
       uri: https://github.com/maligin/partner-enablement-workshop/archive/refs/heads/main.tar.gz
-      expected-sha256: f44a76a1ec3a0c79a007f9cd5e20ac3bf0311789ab045e225384f374bf5e3fb0
-
+      expected-sha256: 51f7a71b3821aa103687134d5f1e041746475aecd7a17b2f601a0503b9dbcbcd
   - name: Build Go application
     runs: |
       CGO_ENABLED=0 go build -o "${{targets.destdir}}/usr/bin/hello-server" .
