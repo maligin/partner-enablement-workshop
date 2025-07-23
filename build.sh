@@ -32,6 +32,7 @@ build_wolfi_ms() {
 
 build_apko_dev() {
     ./update-sha256-melange.sh
+    mkdir -p ./apko-images
     if [[ ! -f melange.rsa || ! -f melange.rsa.pub ]]; then
       echo "melange.rsa oder melange.rsa.pub fehlt, erstelle Keypair..."
       melange keygen
@@ -47,7 +48,8 @@ build_apko_dev() {
 
 build_apko_prod() {
     ./update-sha256-melange.sh
-        if [[ ! -f melange.rsa || ! -f melange.rsa.pub ]]; then
+    mkdir -p ./apko-images
+    if [[ ! -f melange.rsa || ! -f melange.rsa.pub ]]; then
       echo "melange.rsa oder melange.rsa.pub fehlt, erstelle Keypair..."
       melange keygen
     else
