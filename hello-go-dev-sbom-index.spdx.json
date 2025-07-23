@@ -1,0 +1,101 @@
+{
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "name": "sbom-sha256:7c8e0910a64e1210b6360e373fb341503ff54211d9e492a56e8584e40638038a",
+  "spdxVersion": "SPDX-2.3",
+  "creationInfo": {
+    "created": "2025-07-21T16:56:11Z",
+    "creators": [
+      "Tool: apko (v0.27.9)",
+      "Organization: Chainguard, Inc"
+    ],
+    "licenseListVersion": "3.16"
+  },
+  "dataLicense": "CC0-1.0",
+  "documentNamespace": "https://spdx.org/spdxdocs/apko/",
+  "documentDescribes": [
+    "SPDXRef-Package-sha256-7c8e0910a64e1210b6360e373fb341503ff54211d9e492a56e8584e40638038a"
+  ],
+  "packages": [
+    {
+      "SPDXID": "SPDXRef-Package-sha256-7c8e0910a64e1210b6360e373fb341503ff54211d9e492a56e8584e40638038a",
+      "name": "sha256:7c8e0910a64e1210b6360e373fb341503ff54211d9e492a56e8584e40638038a",
+      "versionInfo": "sha256:7c8e0910a64e1210b6360e373fb341503ff54211d9e492a56e8584e40638038a",
+      "filesAnalyzed": false,
+      "description": "Multi-arch image index",
+      "downloadLocation": "NOASSERTION",
+      "supplier": "Organization: Chainguard, Inc.",
+      "sourceInfo": "Generated at image build time by apko",
+      "primaryPackagePurpose": "CONTAINER",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "7c8e0910a64e1210b6360e373fb341503ff54211d9e492a56e8584e40638038a"
+        }
+      ],
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:oci/hello-go@sha256%3A7c8e0910a64e1210b6360e373fb341503ff54211d9e492a56e8584e40638038a?mediaType=application%2Fvnd.oci.image.index.v1%2Bjson",
+          "referenceType": "purl"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-sha256-d276b86a2f91675fdeeae3225b4b37f8fe87a7e067ff9ac82ec376ab82f4dd5d",
+      "name": "sha256:d276b86a2f91675fdeeae3225b4b37f8fe87a7e067ff9ac82ec376ab82f4dd5d",
+      "versionInfo": "sha256:d276b86a2f91675fdeeae3225b4b37f8fe87a7e067ff9ac82ec376ab82f4dd5d",
+      "filesAnalyzed": false,
+      "downloadLocation": "NOASSERTION",
+      "supplier": "Organization: Chainguard, Inc.",
+      "primaryPackagePurpose": "CONTAINER",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "d276b86a2f91675fdeeae3225b4b37f8fe87a7e067ff9ac82ec376ab82f4dd5d"
+        }
+      ],
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:oci/hello-go@sha256%3Ad276b86a2f91675fdeeae3225b4b37f8fe87a7e067ff9ac82ec376ab82f4dd5d?arch=amd64\u0026mediaType=application%2Fvnd.oci.image.manifest.v1%2Bjson\u0026os=linux",
+          "referenceType": "purl"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-gitC43ssh-C47C47github.comC47maliginC47partner-enablement-workshop.gitC6409f12235a031b00da661b0585f7446a6ea144479",
+      "name": "github.com/maligin/partner-enablement-workshop.git",
+      "versionInfo": "09f12235a031b00da661b0585f7446a6ea144479",
+      "filesAnalyzed": false,
+      "description": "Image configuration source",
+      "downloadLocation": "git+ssh://github.com/maligin/partner-enablement-workshop.git@09f12235a031b00da661b0585f7446a6ea144479",
+      "supplier": "Organization: Chainguard, Inc.",
+      "primaryPackagePurpose": "SOURCE",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "09f12235a031b00da661b0585f7446a6ea144479"
+        }
+      ],
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:github/maligin/partner-enablement-workshop@09f12235a031b00da661b0585f7446a6ea144479",
+          "referenceType": "purl"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-Package-sha256-7c8e0910a64e1210b6360e373fb341503ff54211d9e492a56e8584e40638038a",
+      "relationshipType": "VARIANT_OF",
+      "relatedSpdxElement": "SPDXRef-Package-sha256-d276b86a2f91675fdeeae3225b4b37f8fe87a7e067ff9ac82ec376ab82f4dd5d"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-sha256-7c8e0910a64e1210b6360e373fb341503ff54211d9e492a56e8584e40638038a",
+      "relationshipType": "GENERATED_FROM",
+      "relatedSpdxElement": "SPDXRef-Package-gitC43ssh-C47C47github.comC47maliginC47partner-enablement-workshop.gitC6409f12235a031b00da661b0585f7446a6ea144479"
+    }
+  ]
+}

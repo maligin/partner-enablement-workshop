@@ -57,9 +57,9 @@ Clone repo:
 git clone git@github.com:maligin/partner-enablement-workshop.git
 ```
 
-Build all:
+Build all (lazy-style):
 ```sh
-./build-all.sh
+./build-all.sh all
 ```
 
 ## Build Examples
