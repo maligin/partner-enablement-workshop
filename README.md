@@ -1,6 +1,6 @@
 # hello-go: Multi-Platform Container Build Demo
 
-This repository demonstrates **modern, secure, reproducible container builds** using both classic Dockerfile-based methods and the [apko](https://github.com/chainguard-dev/apko) / [melange](https://github.com/chainguard-dev/melange) toolchain (the foundation of [Wolfi](https://wolfi.dev/) and [Chainguard Images](https://www.chainguard.dev/)).
+This repository demonstrates **modern, secure, reproducible container builds** using both classic Dockerfile-based methods and the [apko](https://github.com/chainguard-dev/apko) / [melange](https://github.com/chainguard-dev/melange) toolchain (the foundation of [Wolfi](https://wolfi.dev/) and [Chainguard Images](https://images.chainguard.dev/)).
 
 ---
 
@@ -136,4 +136,14 @@ docker load < hello-go-prod.tar
 #### Comparing vulnerabilities in Single and Multi-stage Dockerfile builds
 #### Comparing vulnerabilities in melange+apko builds
 ##### Reviewing the SBOM
+
+### **4. Entering the built container using  ```sh```:
+#### Wolfi-based ```dev``` image:
+```sh
+docker run --rm -it -u root --entrypoint=sh hello-go:wolfi-latest-apko-dev-amd64 
+```
+#### Wolfi-based ```prod``` image:
+```sh
+docker run --rm -it -u root --entrypoint=sh hello-go:wolfi-latest-apko-prod-amd64
+```
 
