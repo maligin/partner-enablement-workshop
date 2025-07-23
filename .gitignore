@@ -1,6 +1,7 @@
 melange.rsa
 melange.rsa.pub
 packages/
+apko-images/*
 *.tar
 sbom-*
 build.txt

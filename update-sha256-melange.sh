@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-YAML_FILE="melange.yaml"
+YAML_FILE="melange/melange.yaml"
 URL="https://github.com/maligin/partner-enablement-workshop/archive/refs/heads/main.tar.gz"
 
 # SHA256 automatisch ermitteln

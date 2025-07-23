@@ -26,16 +26,16 @@ The apko/melange approach:
 |--------------------------|----------------------------------------------------|
 | `main.go`                | Sample Go app                                      |
 | `go.mod`, `go.sum`       | Go dependencies                                    |
-| `melange.yaml`           | melange build recipe (declarative package build)   |
-| `apko-dev.yaml`          | apko dev image spec (distroless image)             |
-| `apko-prod.yaml`         | Prod variant (hardened, minimal)                   |
-| `Dockerfile.ubuntu`      | Classic Ubuntu-based Dockerfile                    |
-| `Dockerfile.ubuntu-ms`   | Ubuntu + Multistaget best practices (multistage)   |
-| `Dockerfile.debian-ms`   | Debian + Multistaget best practices (multistage)   |
-| `Dockerfile.alpine`      | Alpine-based Dockerfile                            |
-| `Dockerfile.alpine-ms`   | Alpine + Multistaget best practices (multistage)   |
-| `Dockerfile.wolfi`       | Wolfi-based Dockerfile (distroless, single-stage)  |
-| `Dockerfile.wolfi-ms`    | Wolfi-based multistage (build + minimal runtime)   |
+| `melange/melange.yaml`           | melange build recipe (declarative package build)   |
+| `apko/apko-dev.yaml`          | apko dev image spec (distroless image)             |
+| `apko/apko-prod.yaml`         | Prod variant (hardened, minimal)                   |
+| `dockerfiles/Dockerfile.ubuntu`      | Classic Ubuntu-based Dockerfile                    |
+| `dockerfiles/Dockerfile.ubuntu-ms`   | Ubuntu + Multistaget best practices (multistage)   |
+| `dockerfiles/Dockerfile.debian-ms`   | Debian + Multistaget best practices (multistage)   |
+| `dockerfiles/Dockerfile.alpine`      | Alpine-based Dockerfile                            |
+| `dockerfiles/Dockerfile.alpine-ms`   | Alpine + Multistaget best practices (multistage)   |
+| `dockerfiles/Dockerfile.wolfi`       | Wolfi-based Dockerfile (distroless, single-stage)  |
+| `dockerfiles/Dockerfile.wolfi-ms`    | Wolfi-based multistage (build + minimal runtime)   |
 | `LICENSE`                | Licensing info                                     |
 | `.gitignore`             | Clean repo config                                  |
 
