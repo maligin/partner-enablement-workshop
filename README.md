@@ -27,7 +27,7 @@ The apko/melange approach:
 | `main.go`                | Sample Go app                                      |
 | `go.mod`, `go.sum`       | Go dependencies                                    |
 | `melange.yaml`           | melange build recipe (declarative package build)   |
-| `apko.yaml`              | apko image spec (distroless image)                 |
+| `apko-dev.yaml`          | apko dev image spec (distroless image)             |
 | `apko-prod.yaml`         | Prod variant (hardened, minimal)                   |
 | `Dockerfile.ubuntu`      | Classic Ubuntu-based Dockerfile                    |
 | `Dockerfile.ubuntu-ms`   | Ubuntu + Multistaget best practices (multistage)   |
@@ -98,9 +98,7 @@ docker run --privileged --rm -v "${PWD}":/work \
 ```
 ##### or using ```melange``` directly on host:
 ```sh
-melange build melange.yaml \
-  --arch amd64,aarch64 \
-  --signing-key melange.rsa
+melange build melange.yaml --arch amd64,aarch64 --signing-key melange.rsa
 ```
 
 #### Assmebling the container using ```apko-dev.yaml``` and ```apko-prod.yaml```
@@ -119,14 +117,10 @@ docker run --rm --workdir /work -v ${PWD}:/work cgr.dev/chainguard/apko:latest \
 ```
 #### or using ```apko``` directly on host:
 ```sh
-apko build apko-dev.yaml \
-  hello-go:wolfi-latest-apko-dev \ 
-  hello-go-dev.tar --arch host
+apko build apko-dev.yaml hello-go:wolfi-latest-apko-dev hello-go-dev.tar --arch host
 ```
 ```sh
-apko build apko-prod.yaml \
-  hello-go:wolfi-latest-apko-prod \ 
-  hello-go-prod.tar --arch host
+apko build apko-prod.yaml hello-go:wolfi-latest-apko-prod hello-go-prod.tar --arch host
 ```
 
 #### Loading container using ```docker load < ...```:
