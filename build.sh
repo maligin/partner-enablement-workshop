@@ -1,4 +1,8 @@
 #!/bin/bash
+
+GIT_REPO="https://github.com/maligin/partner-enablement-workshop.git"
+export GIT_REPO
+
 set -e
 
 clean_all() {
@@ -39,7 +43,7 @@ build_apko_dev() {
     else
       echo "melange.rsa und melange.rsa.pub sind bereits vorhanden."
     fi
-    melange build melange/melange.yaml --arch host --signing-key melange.rsa
+    melange build melange/melange.yaml --arch host --signing-key melange.rsa --git-repo-url=$GIT_REPO
     apko build apko/apko-dev.yaml hello-go:wolfi-latest-apko-dev apko-images/hello-go-dev.tar --arch host
     mv sbom-index.spdx.json apko-images/hello-go-dev-sbom-index.spdx.json
     mv sbom-x86_64.spdx.json apko-images/hello-go-dev-sbom-x86_64.spdx.json
@@ -55,7 +59,7 @@ build_apko_prod() {
     else
       echo "melange.rsa und melange.rsa.pub sind bereits vorhanden."
     fi
-    melange build melange/melange.yaml --arch host --signing-key melange.rsa 
+    melange build melange/melange.yaml --arch host --signing-key melange.rsa --git-repo-url=$GIT_REPO
     apko build apko/apko-prod.yaml hello-go:wolfi-latest-apko-prod apko-images/hello-go-prod.tar --arch host
     mv sbom-index.spdx.json apko-images/hello-go-prod-sbom-index.spdx.json
     mv sbom-x86_64.spdx.json apko-images/hello-go-prod-sbom-x86_64.spdx.json

@@ -3,8 +3,6 @@ package:
   version: 0.1.0
   epoch: 0
   description: friendly little webserver
-  target-architecture:
-    - all
   copyright:
     - license: Apache-2.0
       paths:
@@ -25,7 +23,7 @@ pipeline:
   - uses: fetch
     with:
       uri: https://github.com/maligin/partner-enablement-workshop/archive/refs/heads/main.tar.gz
-      expected-sha256: ec27affa73600b4ac17f00cf2c1d939b9acf2da9b5d44b66a6785b093d198ddc
+      expected-sha256: b79bc4ffd05df5afd254441def0e823b8a7e94fb74cb78d9bf2b3beb14bb8290
   - name: Build Go application
     runs: |
       CGO_ENABLED=0 go build -o "${{targets.destdir}}/usr/bin/hello-server" .

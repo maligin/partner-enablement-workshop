@@ -1,5 +1,7 @@
 melange.rsa
 melange.rsa.pub
+cosign.pub
+cosign.key
 packages/
 apko-images/*
 *.tar
