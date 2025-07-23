@@ -41,6 +41,27 @@ The apko/melange approach:
 
 ---
 
+## Workshop Prerequisites
+For this workshop you will need following tooling installed:
+- git
+- Docker
+- cosign (optional)
+- melange (optinal)
+- apko (optional)
+- yq
+- jq
+
+## Instructions (TL;DR):
+Clone repo:
+```sh
+git clone git@github.com:maligin/partner-enablement-workshop.git
+```
+
+Build all:
+```sh
+./build-all.sh
+```
+
 ## Build Examples
 
 ### **1. Classic Dockerfile builds**
