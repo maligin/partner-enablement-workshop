@@ -5,3 +5,4 @@ packages/
 sbom-*
 build.txt
 .git
+*.json
