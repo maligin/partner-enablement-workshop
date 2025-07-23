@@ -19,3 +19,7 @@ accounts:
   run-as: 65532
 entrypoint:
   command: /usr/bin/hello-server
+layering:
+  strategy: origin
+  budget: 10
+

@@ -16,7 +16,7 @@ environment:
       - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
       - ./melange.rsa.pub
     repositories:
-      - https://apk.cgr.dev/maligin.de
+      - https://packages.wolfi.dev/os
     packages:
       - ca-certificates-bundle
       - busybox
@@ -26,8 +26,8 @@ environment:
 pipeline:
   - uses: fetch
     with:
-      uri: https://github.com/chainguard-dev/hello-melange-apko/archive/refs/heads/main.tar.gz
-      expected-sha256: 637b6414f2eb2fdad053333005c3104639227a35c7b9f30983ede29fc65423e9
+      uri: https://github.com/maligin/partner-enablement-workshop/archive/refs/heads/main.tar.gz
+      expected-sha256: dc2ed20a5f18450d7a29797e59dffdf250109c88d243b998e0961a57df0832f4
 
   - name: Build Go application
     runs: |

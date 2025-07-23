@@ -1,0 +1,31 @@
+# Stage 1: Builder
+FROM chainguard/wolfi-base:latest AS builder
+
+# Install Go and build dependencies
+RUN apk add --no-cache go git ca-certificates
+
+# Set working directory
+WORKDIR /app
+
+# Copy Go mod files and download dependencies
+COPY go.mod go.sum ./
+RUN go mod download
+
+# Copy the application source code
+COPY main.go ./
+
+# Build the binary (static)
+RUN CGO_ENABLED=0 go build -o /hello-server .
+
+# Stage 2: Final image
+FROM chainguard/wolfi-base:latest
+
+# Install CA certificates (required for HTTPS)
+RUN apk add --no-cache ca-certificates
+
+# Copy the compiled binary
+COPY --from=builder /hello-server /usr/bin/hello-server
+
+# Entrypoint
+ENTRYPOINT ["/usr/bin/hello-server"]
+
