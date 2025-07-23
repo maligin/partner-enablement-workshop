@@ -165,10 +165,10 @@ trivy image <image:tag>
 #### Comparing vulnerabilities in melange+apko builds
 ##### Reviewing the SBOM (dev|prod)
 ```sh
-cat hello-go-dev-sbom-index.spdx.json | jq .
+cat apko-images/hello-go-dev-sbom-index.spdx.json | jq .
 ```
 ```sh
-cat hello-go-prod-sbom-index.spdx.json | jq .
+cat apko-images/hello-go-prod-sbom-index.spdx.json | jq .
 ```
 
 ### **4. Entering the built container using  ```sh```:**
