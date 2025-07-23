@@ -70,42 +70,42 @@ Each Dockerfile represents a different base OS and hardening level:
 
 #### Single Dockerfile - based on ```ubuntu:latest```
 ```sh
-docker buildx build -t hello-go:ubuntu-latest -f Dockerfile.ubuntu .
+docker buildx build -t hello-go:ubuntu-latest -f dockerfiles/Dockerfile.ubuntu .
 ```
 
 #### Multi-stage build based on ```ubuntu:latest```
 ```sh
-docker buildx build -t hello-go:ubuntu-latest-ms -f Dockerfile.ubuntu-ms .
+docker buildx build -t hello-go:ubuntu-latest-ms -f dockerfiles/Dockerfile.ubuntu-ms .
 ```
 
 #### Single Dockerfile - based on ```debian:latest```
 ```sh
-docker buildx build -t hello-go:debian-latest -f Dockerfile.debian .
+docker buildx build -t hello-go:debian-latest -f dockerfiles/Dockerfile.debian .
 ```
 
 #### Multi-stage build based on ```debian:latest```
 ```sh
-docker buildx build -t hello-go:debian-latest-ms -f Dockerfile.debian-ms .
+docker buildx build -t hello-go:debian-latest-ms -f dockerfiles/Dockerfile.debian-ms .
 ```
 
 #### Single Dockerfile - based on ```alpine:latest```
 ```sh
-docker buildx build -t hello-go:alpine-latest -f Dockerfile.alpine .
+docker buildx build -t hello-go:alpine-latest -f dockerfiles/Dockerfile.alpine .
 ```
 
 #### Multi-stage build based on ```alpine:latest```
 ```sh
-docker buildx build -t hello-go:alpine-latest-ms -f Dockerfile.alpine-ms .
+docker buildx build -t hello-go:alpine-latest-ms -f dockerfiles/Dockerfile.alpine-ms .
 ```
 
 #### Single Dockerfile - based on ```wolfi-base:latest```
 ```sh
-docker buildx build -t hello-go:wolfi-latest -f Dockerfile.wolfi .
+docker buildx build -t hello-go:wolfi-latest -f dockerfiles/Dockerfile.wolfi .
 ```
 
 #### Multi-stage build based on ```wolfi-base:latest```
 ```sh
-docker buildx build -t hello-go:wolfi-latest-ms -f Dockerfile.wolfi-ms .
+docker buildx build -t hello-go:wolfi-latest-ms -f dockerfiles/Dockerfile.wolfi-ms .
 ```
 
 ### **2. Chainguard's way to build containers using melange+apko**
@@ -163,9 +163,12 @@ trivy image <image:tag>
 ```
 
 #### Comparing vulnerabilities in melange+apko builds
-##### Reviewing the SBOM
+##### Reviewing the SBOM (dev|prod)
 ```sh
-cat sbom-index.spdx.json | jq .
+cat hello-go-dev-sbom-index.spdx.json | jq .
+```
+```sh
+cat hello-go-prod-sbom-index.spdx.json | jq .
 ```
 
 ### **4. Entering the built container using  ```sh```:**
