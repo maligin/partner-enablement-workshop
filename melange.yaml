@@ -27,7 +27,7 @@ pipeline:
   - uses: fetch
     with:
       uri: https://github.com/maligin/partner-enablement-workshop/archive/refs/heads/main.tar.gz
-      expected-sha256: dc2ed20a5f18450d7a29797e59dffdf250109c88d243b998e0961a57df0832f4
+      expected-sha256: f44a76a1ec3a0c79a007f9cd5e20ac3bf0311789ab045e225384f374bf5e3fb0
 
   - name: Build Go application
     runs: |

@@ -132,12 +132,22 @@ docker load < hello-go-dev.tar
 docker load < hello-go-prod.tar
 ```
 
-### **3. Scanning the created containers using ```grype```**
+### **3. Scanning the created containers using ```grype``` or ```trivy```:**
 #### Comparing vulnerabilities in Single and Multi-stage Dockerfile builds
+```sh
+grype <image:tag>
+```
+```sh
+trivy image <image:tag>
+```
+
 #### Comparing vulnerabilities in melange+apko builds
 ##### Reviewing the SBOM
+```sh
+cat sbom-index.spdx.json | jq .
+```
 
-### **4. Entering the built container using  ```sh```:
+### **4. Entering the built container using  ```sh```:**
 #### Wolfi-based ```dev``` image:
 ```sh
 docker run --rm -it -u root --entrypoint=sh hello-go:wolfi-latest-apko-dev-amd64 
