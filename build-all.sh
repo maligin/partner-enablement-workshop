@@ -1,6 +1,10 @@
 #!/bin/bash
 set -e
 
+clean_all() {
+    docker image rm -f $(docker image ls | grep hello-go | awk '{ print $3 }')
+}
+
 build_ubuntu() {
     docker buildx build -t hello-go:ubuntu-latest -f Dockerfile.ubuntu .
 }
@@ -77,8 +81,9 @@ case "$1" in
     apko-dev)   build_apko_dev ;;
     apko-prod)  build_apko_prod ;;
     list)	list_images ;;
+    clean)	clean_all ;;
     *)
-        echo "Usage: $0 {all|debian|debian-ms|alpine|alpine-ms|ubuntu|ubuntu-ms|wolfi|wolfi-ms|apko-dev|apko-prod|list}"
+        echo "Usage: $0 {all|debian|debian-ms|alpine|alpine-ms|ubuntu|ubuntu-ms|wolfi|wolfi-ms|apko-dev|apko-prod|list|clean}"
         exit 1
         ;;
 esac
