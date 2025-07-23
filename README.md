@@ -138,10 +138,10 @@ docker run --rm --workdir /work -v ${PWD}:/work cgr.dev/chainguard/apko:latest \
 ```
 #### or using ```apko``` directly on host:
 ```sh
-apko build apko-dev.yaml hello-go:wolfi-latest-apko-dev hello-go-dev.tar --arch host
+apko build apko/apko-dev.yaml hello-go:wolfi-latest-apko-dev apko-images/hello-go-dev.tar --arch host
 ```
 ```sh
-apko build apko-prod.yaml hello-go:wolfi-latest-apko-prod hello-go-prod.tar --arch host
+apko build apko/apko-prod.yaml hello-go:wolfi-latest-apko-prod apko-images/hello-go-prod.tar --arch host
 ```
 
 #### Loading container using ```docker load < ...```:
