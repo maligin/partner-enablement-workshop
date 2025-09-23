@@ -1,0 +1,10 @@
+hello-go:alpine-latest
+hello-go:alpine-latest-ms
+hello-go:debian-latest
+hello-go:debian-latest-ms
+hello-go:ubuntu-latest
+hello-go:ubuntu-latest-ms
+hello-go:wolfi-latest
+hello-go:wolfi-latest-apko-dev-arm64
+hello-go:wolfi-latest-apko-prod-arm64
+hello-go:wolfi-latest-ms

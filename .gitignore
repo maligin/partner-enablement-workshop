@@ -9,3 +9,4 @@ sbom-*
 build.txt
 .git
 *.json
+scan-results/
