@@ -10,3 +10,4 @@ build.txt
 .git
 *.json
 scan-results/
+cosign-keys/

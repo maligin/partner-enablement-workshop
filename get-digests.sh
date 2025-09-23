@@ -33,7 +33,7 @@ for image in "${IMAGES[@]}"; do
     # Check if image exists using docker images command
     if docker images --format "{{.Repository}}:{{.Tag}}" | grep -q "^${image}$"; then
         # Get image ID directly using docker images command
-        id=$(docker images --format "{{.ID}}" --filter "reference=${image}" | head -1)
+        id=$(docker images --format "{{.Digest}}" --filter "reference=${image}" | head -1)
         if [ -n "$id" ]; then
             echo "✅ $image@sha256:$id"
             found_count=$((found_count + 1))
