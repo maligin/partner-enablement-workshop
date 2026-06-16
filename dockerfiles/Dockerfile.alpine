@@ -1,5 +1,8 @@
 FROM alpine:latest
 
+# upgrade everything
+RUN apk update && apk upgrade
+
 # Install dependencies
 RUN apk add --no-cache ca-certificates git go
 

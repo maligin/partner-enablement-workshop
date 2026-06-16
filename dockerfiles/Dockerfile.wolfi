@@ -3,6 +3,9 @@ FROM chainguard/wolfi-base:latest
 # Install dependencies
 RUN apk add --no-cache ca-certificates git go
 
+# Why also not upgrade here?!
+RUN apk upgrade
+
 # Set workdir
 WORKDIR /app
 

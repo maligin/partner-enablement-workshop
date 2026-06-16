@@ -3,6 +3,9 @@ FROM debian:latest
 # Set desired Go version
 ENV GOLANG_VERSION=1.24.0
 
+# Upgrade everything!
+RUN apt-get update && apt-get upgrade -y
+
 # Install dependencies
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \

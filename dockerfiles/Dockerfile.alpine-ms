@@ -1,6 +1,9 @@
 # Stage 1: Builder
 FROM alpine:latest AS builder
 
+# Upgrade everything!
+RUN apk update && apk upgrade
+
 # Install Go and build dependencies
 RUN apk add --no-cache go git ca-certificates
 
@@ -19,6 +22,9 @@ RUN CGO_ENABLED=0 go build -o /hello-server .
 
 # Stage 2: Final image
 FROM alpine:latest
+
+# Upgrade also here everything!
+RUN apk upgrade
 
 # Install CA certificates (required for HTTPS)
 RUN apk add --no-cache ca-certificates
